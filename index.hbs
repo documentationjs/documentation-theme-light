@@ -1,0 +1,59 @@
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>{{options.name}} {{options.version}}</title>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/railscasts.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation'>
+  <div class='px2'>
+    <div class='clearfix md-flex lg-flex flex-stretch mxn2'>
+      {{#unless options.hideSidebar}}
+      <div class='documentation-sidebar relative top-0 bottom-0 right-0 px2 py2 col-3 md-show'>
+        <div class='font-smaller fixed col-3 top-0 bottom-0 left-0 overflow-auto black fill-light dark-link'>
+          <a href='/' class='h5 button block button-transparent'>{{options.name}} {{options.version}}</a>
+          <div class='px2'>
+            {{#each docs}}
+              <a
+                href='#{{permalink}}'
+                class='regular mt1 quiet rounded block'>
+                {{name}}
+              </a>
+              {{#each members.static}}
+                <a
+                  href='#{{permalink}}'
+                  class='px1 quiet regular rounded block'>
+                  <code>.{{name}}</code>
+                </a>
+              {{/each}}
+              {{#each members.instance}}
+                <a
+                  href='#{{permalink}}'
+                  class='px1 quiet rounded regular block'>
+                  <code>#{{name}}</code>
+                </a>
+              {{/each}}
+              {{#each events}}
+                <a
+                  href='#{{permalink}}'
+                  class='px1 quiet rounded regular block'>
+                  <code>ⓔ {{name}}</code>
+                </a>
+              {{/each}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      {{/unless}}
+      <div class='sm-col-12 md-col-9 {{#unless options.hideSidebar}} lg-col-9 {{/unless}} flex flex-column'>
+        <div class=''>
+          <div class='px1'>
+            {{#each docs ~}}{{> section}}{{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

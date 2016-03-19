@@ -1,0 +1,142 @@
+<section id='{{permalink}}'class='mt4 mb4 px2'>
+  {{#if context.github}}
+    <div class='right py2'>
+      {{#if augments}}
+        <span class='font-smaller'>
+          Extends
+          {{#augments}}
+            {{{autolink name}}}
+          {{/augments}}
+        </span>
+      {{/if}}
+      <a class='fade font-smaller' href='{{{context.github}}}'><code>{{{context.path}}}</code></a>
+    </div>
+  {{/if}}
+  <h3 class='regular'>
+    <a class='black' href='#{{permalink}}'>
+      <code>
+        {{name}}<span class='gray'>{{{format_params}}}</span>
+      </code>
+    </a>
+  </h3>
+  {{{md description}}}
+
+  {{#if params}}
+    <p>
+      <table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+        <thead class='fill-light'>
+          <th class='col-3 small caps quiet'>parameter</th>
+          <th class='col-3 small caps quiet'>type</th>
+          <th class='col-6 small caps quiet'>description</th>
+        </thead>
+        {{#params}}
+          <tr>
+            <td class='col-3 strong'>{{name}}</td>
+            <td class='col-3 quiet'>
+              {{{format_type type}}}
+              {{#default}}
+                (default <code>{{.}}</code>)
+              {{/default}}
+            </td>
+            <td class='col-6'>{{{md description}}}</td>
+          </tr>
+          {{#properties}}
+            <tr>
+              <td class='col-2 strong'>{{name}}</td>
+              <td class='col-2 quiet'>
+                {{{format_type type}}}
+                {{#default}}
+                (default <code>{{.}}</code>)
+                {{/default}}
+              </td>
+              <td class='col-8'>{{{md description}}}</td>
+            </tr>
+          {{/properties}}
+        {{/params}}
+      </table>
+    </p>
+  {{/if}}
+
+  {{#if properties}}
+    <p>
+      <table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+        <thead class='fill-light'>
+          <th class='col-2 small caps quiet'>property</th>
+          <th class='col-2 small caps quiet'>type</th>
+          <th class='col-8 small caps quiet'>description</th>
+        </thead>
+        {{#properties}}
+          <tr>
+            <td class='col-2 strong'>{{name}}</td>
+            <td class='col-2 quiet'>
+              {{{format_type type}}}
+              {{#default}}
+                (default <code>{{.}}</code>)
+              {{/default}}
+            </td>
+            <td class='col-8'>{{{md description}}}</td>
+          </tr>
+        {{/properties}}
+      </table>
+    </p>
+  {{/if}}
+
+  {{#if returns}}
+    {{#returns}}
+      <h4 class='caps quiet mb1 mt3'>Returns</h4>
+      <code>{{{format_type type}}}</code>
+      {{#if description}}:{{/if}}
+      <span class='force-inline'>
+        {{{md description}}}
+      </span>
+    {{/returns}}
+  {{/if}}
+
+  {{#if throws}}
+      <h4 class='caps quiet mb1 mt3'>Throws</h4>
+      <table class='table-light mt3 rounded keyline-all keyline-light overflow-hidden bg-cloudy-light'>
+        <thead class='fill-light'>
+          <th class='col-2 small caps quiet'>exception</th>
+          <th class='col-10 small caps quiet'>description</th>
+        </thead>
+        {{#throws}}
+          <tr>
+            <td class='col-2 strong'>{{{format_type type}}}</td>
+            <td class='col-10'>
+              {{{md description}}}
+            </td>
+          </tr>
+        {{/throws}}
+      </table>
+  {{/if}}
+
+  {{#if examples}}
+    <h4 class='caps quiet mb2 mt3'>Examples</h4>
+    {{#each examples ~}}<pre class='hljs css small'>{{{.}}}</pre>{{/each}}
+  {{/if}}
+
+  {{#if members.static}}
+    {{#each members.static}}
+      <div class='section-indent'>
+        {{> section}}
+      </div>
+    {{/each}}
+  {{/if}}
+
+  {{#if members.instance}}
+    {{#each members.instance}}
+      <div class='section-indent'>
+       {{> section}}
+      </div>
+    {{/each}}
+  {{/if}}
+
+  {{#if events}}
+    {{#each events}}
+      <div class='section-indent'>
+        {{> section}}
+      </div>
+    {{/each}}
+  {{/if}}
+
+</section>

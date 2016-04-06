@@ -1,14 +1,14 @@
 {
-  "name": "documentation-theme-default",
+  "name": "documentation-theme-light",
   "version": "1.0.0-alpha",
-  "description": "the default theme for documentation",
+  "description": "An alternative theme for documentation.js",
   "scripts": {
     "test": "handlebars index.hbs section.hbs > /dev/null"
   },
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/documentationjs/documentation-theme-default.git"
+    "url": "https://github.com/documentationjs/documentation-theme-light.git"
   },
   "keywords": [
     "documentation",
@@ -18,9 +18,9 @@
   "author": "Tom MacWright",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/documentationjs/documentation-theme-default/issues"
+    "url": "https://github.com/documentationjs/documentation-theme-light/issues"
   },
-  "homepage": "https://github.com/documentationjs/documentation-theme-default",
+  "homepage": "https://github.com/documentationjs/documentation-theme-light",
   "devDependencies": {
     "handlebars": "^3.0.3"
   }

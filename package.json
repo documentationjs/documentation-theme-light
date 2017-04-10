@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/documentationjs/documentation-theme-default",
   "devDependencies": {
-    "handlebars": "^3.0.3"
+    "handlebars": "^4.0.6"
   }
 }
